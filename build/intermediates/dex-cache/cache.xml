@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\My Semester 4\In13-S4-CS3042 - Database Systems\Mini Project\SimpleExpenseManager\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="E:\My Semester 4\In13-S4-CS3042 - Database Systems\Mini Project\SimpleExpenseManager\app\build\intermediates\pre-dexed\debug\classes-1e5809ed3cad27822d9e9d5240d518e22d65c110.jar" />
+    </item>
+    <item
+        jar="E:\My Semester 4\In13-S4-CS3042 - Database Systems\Mini Project\SimpleExpenseManager\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="E:\My Semester 4\In13-S4-CS3042 - Database Systems\Mini Project\SimpleExpenseManager\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-adb9fa3aa6bb71b717b1ec40a8b8e17ad76b5890.jar" />
+    </item>
+    <item
+        jar="E:\My Semester 4\In13-S4-CS3042 - Database Systems\Mini Project\SimpleExpenseManager\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="E:\My Semester 4\In13-S4-CS3042 - Database Systems\Mini Project\SimpleExpenseManager\app\build\intermediates\pre-dexed\debug\classes-c04b695eb227931e4d368b9fbd842c15b2a86632.jar" />
+    </item>
+    <item
+        jar="E:\My Semester 4\In13-S4-CS3042 - Database Systems\Mini Project\SimpleExpenseManager\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="E:\My Semester 4\In13-S4-CS3042 - Database Systems\Mini Project\SimpleExpenseManager\app\build\intermediates\pre-dexed\debug\classes-9c2471d4bcb4f64659228e863237f657118d3427.jar" />
+    </item>
+    <item
+        jar="G:\Softwares\ANDROID\android-sdk-windows\android-sdk-windows\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="E:\My Semester 4\In13-S4-CS3042 - Database Systems\Mini Project\SimpleExpenseManager\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-8aafa84b639088447404a1c5351a8777d876a973.jar" />
+    </item>
+
+</items>
