@@ -1,5 +1,7 @@
 package lk.ac.mrt.cse.dbs.simpleexpensemanager.data.impl;
 
+import android.widget.Toast;
+
 import java.util.List;
 
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.ApplicationContext;
@@ -49,13 +51,20 @@ public class PersistantAccontDAO implements AccountDAO{
     @Override
     public void updateBalance(String accountNo, ExpenseType expenseType, double amount) throws InvalidAccountException {
         Account account = databaseHandler.getAccount(accountNo);
-        switch (expenseType) {
-            case EXPENSE:
-                databaseHandler.updateBalance(accountNo, account.getBalance() - amount);
-                break;
-            case INCOME:
-                databaseHandler.updateBalance(accountNo, account.getBalance() + amount);
-                break;
+
+        if(account!=null){
+            switch (expenseType) {
+                case EXPENSE:
+                    databaseHandler.updateBalance(accountNo, account.getBalance() - amount);
+                    break;
+                case INCOME:
+                    databaseHandler.updateBalance(accountNo, account.getBalance() + amount);
+                    break;
+            }
         }
+        else{
+            Toast.makeText(ApplicationContext.getContext(), "Account not exists!", Toast.LENGTH_LONG).show();
+        }
+
     }
 }
