@@ -14,7 +14,6 @@ public class ApplicationContext extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i("Context", "Executed >>>>>>>>>>>>>>");
         context = getApplicationContext();
     }
 

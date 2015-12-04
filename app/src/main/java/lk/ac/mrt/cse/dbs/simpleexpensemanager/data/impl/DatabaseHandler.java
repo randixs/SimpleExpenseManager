@@ -27,7 +27,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Database name
-    private static String DATABASE_NAME = "expenses.db";
+    private static String DATABASE_NAME = "130047D.db";
 
     // Table names
     private static String TABLE_ACCOUNT = "account";
@@ -53,8 +53,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.i("Query 1", CREATE_TABLE_ACCOUTN);
-        Log.i("Query 2", CREATE_TABLE_TRANSACTION);
         db.execSQL(CREATE_TABLE_ACCOUTN);
         db.execSQL(CREATE_TABLE_TRANSACTION);
     }
@@ -103,7 +101,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public Account getAccount(String accountNo){
         Account account=null;
-        String selectQuery="SELECT * FROM " + TABLE_ACCOUNT + " WHERE " + KEY_ACCOUNT_NO + "=" + accountNo;
+        String selectQuery="SELECT * FROM " + TABLE_ACCOUNT + " WHERE " + KEY_ACCOUNT_NO + "='" + accountNo + "'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor=db.rawQuery(selectQuery,null);
 
@@ -133,7 +131,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public void removeAccount(String accountNo){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_ACCOUNT, KEY_ACCOUNT_NO + "=" + accountNo, null);
+        db.delete(TABLE_ACCOUNT, KEY_ACCOUNT_NO + "='" + accountNo + "'", null);
         db.close();
     }
 
@@ -143,7 +141,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_BALANCE, newAmount);
 
-        db.update(TABLE_ACCOUNT, values, KEY_ACCOUNT_NO + "=" + accountNo, null);
+        db.update(TABLE_ACCOUNT, values, KEY_ACCOUNT_NO + "='" + accountNo + "'", null);
         db.close();
     }
 
@@ -151,9 +149,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addTransaction(Transaction transaction){
         SQLiteDatabase db = this.getWritableDatabase();
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(transaction.getDate());
+
         ContentValues values = new ContentValues();
-        values.put(KEY_DATE, transaction.getDate().toString());
-        values.put(KEY_HOLDER_NAME, transaction.getAccountNo());
+        values.put(KEY_DATE, date);
+        values.put(KEY_ACCOUNT_NO, transaction.getAccountNo());
         values.put(KEY_EXPENSE_TYPE, transaction.getExpenseType().toString());
         values.put(KEY_AMOUNT, transaction.getAmount());
 
@@ -170,11 +171,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Date date = null;
-                String dateString = cursor.getString(0) + "T00:00:00Z";
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+                String dateString = cursor.getString(0);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 try {
-                    date = format.parse(dateString);
-                    System.out.println(date);
+                    date = sdf.parse(dateString);
                 } catch (ParseException e) {
                     // TODO Auto-generated catch block
                     Log.e("Database Handler", "Error converting String to Date. " + e.toString());
@@ -199,11 +199,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Date date = null;
-                String dateString = cursor.getString(0) + "T00:00:00Z";
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+                String dateString = cursor.getString(0);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 try {
-                    date = format.parse(dateString);
-                    System.out.println(date);
+                    date = sdf.parse(dateString);
                 } catch (ParseException e) {
                     // TODO Auto-generated catch block
                     Log.e("Database Handler", "Error converting String to Date. " + e.toString());
@@ -218,5 +217,4 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         return transactionList;
     }
-
 }
