@@ -44,8 +44,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_AMOUNT = "amount";
 
     // Create queries
-    private static final String CREATE_TABLE_ACCOUTN = "CREATE TABLE " + TABLE_ACCOUNT + "(" + KEY_ACCOUNT_NO + " TEXT NOT NULL, " + KEY_BANK_NAME + " TEXT NOT NULL, " + KEY_HOLDER_NAME + " TEXT NOT NULL, " + KEY_BALANCE + " REAL NOT NULL)";
-    private static final String CREATE_TABLE_TRANSACTION = "CREATE TABLE " + TABLE_TRANSACTION + "(" + KEY_DATE + " TEXT NOT NULL, " + KEY_ACCOUNT_NO + " TEXT NOT NULL, " + KEY_EXPENSE_TYPE + " TEXT NOT NULL, " + KEY_AMOUNT + " REAL NOT NULL)";
+    private static final String CREATE_TABLE_ACCOUTN = "CREATE TABLE " + TABLE_ACCOUNT + "(" + KEY_ACCOUNT_NO + " TEXT NOT NULL PRIMARY KEY, " + KEY_BANK_NAME + " TEXT NOT NULL, " + KEY_HOLDER_NAME + " TEXT NOT NULL, " + KEY_BALANCE + " REAL NOT NULL)";
+    private static final String CREATE_TABLE_TRANSACTION = "CREATE TABLE " + TABLE_TRANSACTION + "(" + KEY_DATE + " TEXT NOT NULL, " + KEY_ACCOUNT_NO + " TEXT NOT NULL, " + KEY_EXPENSE_TYPE + " TEXT NOT NULL, " + KEY_AMOUNT + " REAL NOT NULL, FOREIGN KEY (" + KEY_ACCOUNT_NO + ") REFERENCES " + TABLE_TRANSACTION +"("+ KEY_ACCOUNT_NO +"))";
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
